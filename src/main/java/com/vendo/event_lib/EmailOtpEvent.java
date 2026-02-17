@@ -1,4 +1,4 @@
-package com.vendo.notifcation.event;
+package com.vendo.event_lib;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
