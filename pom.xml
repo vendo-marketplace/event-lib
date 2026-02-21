@@ -5,12 +5,12 @@
 
     <groupId>io.github.vendo-marketplace-be</groupId>
     <artifactId>event-lib</artifactId>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
     <packaging>jar</packaging>
 
-    <name>kafka-lib</name>
-    <description>Kafka library for the Vendo Marketplace project</description>
-    <url>https://github.com/vendo-marketplace-be/kafka-lib</url>
+    <name>event-lib</name>
+    <description>Event library for the Vendo Marketplace project</description>
+    <url>https://github.com/vendo-marketplace-be/event-lib</url>
 
     <licenses>
         <license>
@@ -29,9 +29,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/vendo-marketplace-be/kafka-lib.git</connection>
-        <developerConnection>scm:git:ssh://github.com/vendo-marketplace-be/kafka-lib.git</developerConnection>
-        <url>https://github.com/vendo-marketplace-be/kafka-lib</url>
+        <connection>scm:git:https://github.com/vendo-marketplace-be/event-lib.git</connection>
+        <developerConnection>scm:git:ssh://github.com/vendo-marketplace-be/event-lib.git</developerConnection>
+        <url>https://github.com/vendo-marketplace-be/event-lib</url>
     </scm>
 
     <distributionManagement>
