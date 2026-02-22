@@ -43,26 +43,26 @@ public class EmailOtpEvent {
         this.otpEventType = otpEventType;
     }
 
-    public static EmailOtpEventBuilder builder() {
-        return new EmailOtpEventBuilder();
+    public static Builder builder() {
+        return new Builder();
     }
 
-    public static class EmailOtpEventBuilder {
+    public static class Builder {
         private String otp;
         private String email;
         private OtpEventType otpEventType;
 
-        public EmailOtpEventBuilder otp(String otp) {
+        public Builder otp(String otp) {
             this.otp = otp;
             return this;
         }
 
-        public EmailOtpEventBuilder email(String email) {
+        public Builder email(String email) {
             this.email = email;
             return this;
         }
 
-        public EmailOtpEventBuilder otpEventType(OtpEventType otpEventType) {
+        public Builder otpEventType(OtpEventType otpEventType) {
             this.otpEventType = otpEventType;
             return this;
         }
