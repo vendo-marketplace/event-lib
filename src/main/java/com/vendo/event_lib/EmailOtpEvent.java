@@ -2,16 +2,11 @@ package com.vendo.event_lib;
 
 import java.util.Objects;
 
-public class EmailOtpEvent {
-
-    private String otp;
-
-    private String email;
-
-    private OtpEventType otpEventType;
-
-    public EmailOtpEvent() {
-    }
+public record EmailOtpEvent(
+        String otp,
+        String email,
+        OtpEventType otpEventType
+) {
 
     public EmailOtpEvent(String otp, String email, OtpEventType otpEventType) {
         this.otp = otp;
@@ -19,57 +14,8 @@ public class EmailOtpEvent {
         this.otpEventType = otpEventType;
     }
 
-    public String getOtp() {
-        return otp;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public OtpEventType getOtpEventType() {
-        return otpEventType;
-    }
-
-    public void setOtp(String otp) {
-        this.otp = otp;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setOtpEventType(OtpEventType otpEventType) {
-        this.otpEventType = otpEventType;
-    }
-
     public static Builder builder() {
         return new Builder();
-    }
-
-    public static class Builder {
-        private String otp;
-        private String email;
-        private OtpEventType otpEventType;
-
-        public Builder otp(String otp) {
-            this.otp = otp;
-            return this;
-        }
-
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-        public Builder otpEventType(OtpEventType otpEventType) {
-            this.otpEventType = otpEventType;
-            return this;
-        }
-
-        public EmailOtpEvent build() {
-            return new EmailOtpEvent(otp, email, otpEventType);
-        }
     }
 
     @Override
@@ -99,8 +45,32 @@ public class EmailOtpEvent {
     public enum OtpEventType {
 
         EMAIL_VERIFICATION,
-
         PASSWORD_RECOVERY
 
+    }
+
+    public static class Builder {
+        private String otp;
+        private String email;
+        private OtpEventType otpEventType;
+
+        public Builder otp(String otp) {
+            this.otp = otp;
+            return this;
+        }
+
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder otpEventType(OtpEventType otpEventType) {
+            this.otpEventType = otpEventType;
+            return this;
+        }
+
+        public EmailOtpEvent build() {
+            return new EmailOtpEvent(otp, email, otpEventType);
+        }
     }
 }
