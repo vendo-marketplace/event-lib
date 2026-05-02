@@ -9,7 +9,7 @@ public record ProductUpdatedEvent(
         Integer quantity,
         BigDecimal price,
         String categoryId,
-        List<Attribute> attributes,
+        List<AttributeEvent> attributes,
         Boolean active
 ) {
 
@@ -27,7 +27,7 @@ public record ProductUpdatedEvent(
         private Integer quantity;
         private BigDecimal price;
         private String categoryId;
-        private List<Attribute> attributes;
+        private List<AttributeEvent> attributes;
         private Boolean active;
 
         public ProductUpdatedEvent.Builder title(String title) {
@@ -55,7 +55,7 @@ public record ProductUpdatedEvent(
             return this;
         }
 
-        public ProductUpdatedEvent.Builder attributes(List<Attribute> attributes) {
+        public ProductUpdatedEvent.Builder attributes(List<AttributeEvent> attributes) {
             this.attributes = attributes;
             return this;
         }

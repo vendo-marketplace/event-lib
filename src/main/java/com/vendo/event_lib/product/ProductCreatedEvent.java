@@ -11,7 +11,7 @@ public record ProductCreatedEvent(
         BigDecimal price,
         String ownerId,
         String categoryId,
-        List<Attribute> attributes,
+        List<AttributeEvent> attributes,
         Boolean active
 ) {
 
@@ -32,7 +32,7 @@ public record ProductCreatedEvent(
         private BigDecimal price;
         private String ownerId;
         private String categoryId;
-        private List<Attribute> attributes;
+        private List<AttributeEvent> attributes;
         private Boolean active;
 
         public Builder id(String id) {
@@ -70,7 +70,7 @@ public record ProductCreatedEvent(
             return this;
         }
 
-        public Builder attributes(List<Attribute> attributes) {
+        public Builder attributes(List<AttributeEvent> attributes) {
             this.attributes = attributes;
             return this;
         }
