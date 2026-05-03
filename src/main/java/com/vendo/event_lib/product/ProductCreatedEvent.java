@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public record ProductCreatedEvent(
+        String id,
         String title,
         String description,
         Integer quantity,
@@ -15,7 +16,7 @@ public record ProductCreatedEvent(
 ) {
 
     public ProductCreatedEvent(Builder builder) {
-        this(builder.title, builder.description, builder.quantity, builder.price, builder.ownerId, builder.categoryId, builder.attributes, builder.active);
+        this(builder.id, builder.title, builder.description, builder.quantity, builder.price, builder.ownerId, builder.categoryId, builder.attributes, builder.active);
     }
 
 
@@ -24,6 +25,7 @@ public record ProductCreatedEvent(
     }
 
     public static class Builder {
+        private String id;
         private String title;
         private String description;
         private Integer quantity;
@@ -32,6 +34,11 @@ public record ProductCreatedEvent(
         private String categoryId;
         private List<AttributeEvent> attributes;
         private Boolean active;
+
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
 
         public Builder title(String title) {
             this.title = title;
