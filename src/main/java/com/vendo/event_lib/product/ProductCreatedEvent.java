@@ -1,7 +1,7 @@
 package com.vendo.event_lib.product;
 
 import java.math.BigDecimal;
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public record ProductCreatedEvent(
@@ -14,7 +14,7 @@ public record ProductCreatedEvent(
         String categoryId,
         List<AttributeEvent> attributes,
         Boolean active,
-        Instant createdAt
+        LocalDateTime createdAt
 ) {
 
     public ProductCreatedEvent(Builder builder) {
@@ -36,7 +36,7 @@ public record ProductCreatedEvent(
         private String categoryId;
         private List<AttributeEvent> attributes;
         private Boolean active;
-        private Instant createdAt;
+        private LocalDateTime createdAt;
 
         public Builder id(String id) {
             this.id = id;
@@ -83,7 +83,7 @@ public record ProductCreatedEvent(
             return this;
         }
 
-        public Builder createdAt(Instant createdAt) {
+        public Builder createdAt(LocalDateTime createdAt) {
             this.createdAt = createdAt;
             return this;
         }
