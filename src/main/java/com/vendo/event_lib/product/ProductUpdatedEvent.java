@@ -1,5 +1,7 @@
 package com.vendo.event_lib.product;
 
+import com.vendo.event_lib.product.nested.AttributeEvent;
+
 import java.math.BigDecimal;
 import java.util.List;
 
