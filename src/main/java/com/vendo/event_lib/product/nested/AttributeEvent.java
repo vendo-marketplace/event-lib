@@ -1,4 +1,4 @@
-package com.vendo.event_lib.product;
+package com.vendo.event_lib.product.nested;
 
 import java.util.List;
 
