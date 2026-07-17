@@ -23,7 +23,6 @@ public record ProductCreatedEvent(
         this(builder.id, builder.title, builder.description, builder.quantity, builder.price, builder.ownerId, builder.categoryId, builder.attributes, builder.active, builder.build().createdAt);
     }
 
-
     public Builder builder() {
         return new Builder();
     }
