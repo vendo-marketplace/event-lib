@@ -15,12 +15,13 @@ public record ProductCreatedEvent(
         String ownerId,
         String categoryId,
         List<AttributeEvent> attributes,
+        List<String> imageKeys,
         Boolean active,
         Instant createdAt
 ) {
 
     public ProductCreatedEvent(Builder builder) {
-        this(builder.id, builder.title, builder.description, builder.quantity, builder.price, builder.ownerId, builder.categoryId, builder.attributes, builder.active, builder.build().createdAt);
+        this(builder.id, builder.title, builder.description, builder.quantity, builder.price, builder.ownerId, builder.categoryId, builder.attributes, builder.imageKeys ,builder.active, builder.build().createdAt);
     }
 
     public Builder builder() {
@@ -36,6 +37,7 @@ public record ProductCreatedEvent(
         private String ownerId;
         private String categoryId;
         private List<AttributeEvent> attributes;
+        List<String> imageKeys;
         private Boolean active;
         private Instant createdAt;
 
@@ -76,6 +78,11 @@ public record ProductCreatedEvent(
 
         public Builder attributes(List<AttributeEvent> attributes) {
             this.attributes = attributes;
+            return this;
+        }
+
+        public Builder imageKeys(List<String> imageKeys) {
+            this.imageKeys = imageKeys;
             return this;
         }
 
