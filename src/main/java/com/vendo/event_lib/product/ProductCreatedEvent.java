@@ -21,7 +21,7 @@ public record ProductCreatedEvent(
 ) {
 
     public ProductCreatedEvent(Builder builder) {
-        this(builder.id, builder.title, builder.description, builder.quantity, builder.price, builder.ownerId, builder.categoryId, builder.attributes, builder.imageKeys ,builder.active, builder.build().createdAt);
+        this(builder.id, builder.title, builder.description, builder.quantity, builder.price, builder.ownerId, builder.categoryId, builder.attributes, builder.imageKeys, builder.active, builder.build().createdAt);
     }
 
     public Builder builder() {
