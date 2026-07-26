@@ -13,11 +13,12 @@ public record ProductUpdatedEvent(
         BigDecimal price,
         String categoryId,
         List<AttributeEvent> attributes,
+        List<String> imageKeys,
         Boolean active
 ) {
 
     public ProductUpdatedEvent(ProductUpdatedEvent.Builder builder) {
-        this(builder.id, builder.title, builder.description, builder.quantity, builder.price, builder.categoryId, builder.attributes, builder.active);
+        this(builder.id, builder.title, builder.description, builder.quantity, builder.price, builder.categoryId, builder.attributes, builder.imageKeys, builder.active);
     }
 
     public ProductUpdatedEvent.Builder builder() {
@@ -32,6 +33,7 @@ public record ProductUpdatedEvent(
         private BigDecimal price;
         private String categoryId;
         private List<AttributeEvent> attributes;
+        List<String> imageKeys;
         private Boolean active;
 
         public ProductUpdatedEvent.Builder id(String id) {
@@ -66,6 +68,11 @@ public record ProductUpdatedEvent(
 
         public ProductUpdatedEvent.Builder attributes(List<AttributeEvent> attributes) {
             this.attributes = attributes;
+            return this;
+        }
+
+        public ProductUpdatedEvent.Builder imageKeys(List<String> imageKeys) {
+            this.imageKeys = imageKeys;
             return this;
         }
 
