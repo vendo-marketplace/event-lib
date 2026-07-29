@@ -10,6 +10,7 @@ public record ProductUpdatedEvent(
         String title,
         String description,
         Integer quantity,
+        Boolean isNew,
         BigDecimal price,
         String categoryId,
         List<AttributeEvent> attributes,
@@ -18,7 +19,7 @@ public record ProductUpdatedEvent(
 ) {
 
     public ProductUpdatedEvent(ProductUpdatedEvent.Builder builder) {
-        this(builder.id, builder.title, builder.description, builder.quantity, builder.price, builder.categoryId, builder.attributes, builder.imageKeys, builder.active);
+        this(builder.id, builder.title, builder.description, builder.quantity, builder.isNew, builder.price, builder.categoryId, builder.attributes, builder.imageKeys, builder.active);
     }
 
     public ProductUpdatedEvent.Builder builder() {
@@ -30,6 +31,7 @@ public record ProductUpdatedEvent(
         private String title;
         private String description;
         private Integer quantity;
+        private Boolean isNew;
         private BigDecimal price;
         private String categoryId;
         private List<AttributeEvent> attributes;
@@ -53,6 +55,11 @@ public record ProductUpdatedEvent(
 
         public ProductUpdatedEvent.Builder quantity(Integer quantity) {
             this.quantity = quantity;
+            return this;
+        }
+
+        public ProductUpdatedEvent.Builder isNew(Boolean isNew) {
+            this.isNew = isNew;
             return this;
         }
 
