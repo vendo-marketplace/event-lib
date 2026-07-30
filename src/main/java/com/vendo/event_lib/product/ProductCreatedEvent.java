@@ -1,5 +1,6 @@
 package com.vendo.event_lib.product;
 
+import com.vendo.event_lib.product.nested.AddressEvent;
 import com.vendo.event_lib.product.nested.AttributeEvent;
 
 import java.math.BigDecimal;
@@ -8,21 +9,40 @@ import java.util.List;
 
 public record ProductCreatedEvent(
         String id,
+
         String title,
         String description,
         Integer quantity,
-        Boolean isNew,
         BigDecimal price,
-        String ownerId,
-        String categoryId,
         List<AttributeEvent> attributes,
         List<String> imageKeys,
+        AddressEvent address,
+
+        Boolean isNew,
         Boolean active,
+
+        String ownerId,
+        String categoryId,
+
         Instant createdAt
 ) {
 
     public ProductCreatedEvent(Builder builder) {
-        this(builder.id, builder.title, builder.description, builder.quantity, builder.isNew, builder.price, builder.ownerId, builder.categoryId, builder.attributes, builder.imageKeys, builder.active, builder.build().createdAt);
+        this(
+                builder.id,
+                builder.title,
+                builder.description,
+                builder.quantity,
+                builder.price,
+                builder.attributes,
+                builder.imageKeys,
+                builder.address,
+                builder.active,
+                builder.isNew,
+                builder.ownerId,
+                builder.categoryId,
+                builder.createdAt
+        );
     }
 
     public Builder builder() {
@@ -31,16 +51,21 @@ public record ProductCreatedEvent(
 
     public static class Builder {
         private String id;
+
         private String title;
         private String description;
         private Integer quantity;
-        private Boolean isNew;
         private BigDecimal price;
+        private List<AttributeEvent> attributes;
+        private List<String> imageKeys;
+        private AddressEvent address;
+
+        private Boolean active;
+        private Boolean isNew;
+
         private String ownerId;
         private String categoryId;
-        private List<AttributeEvent> attributes;
-        List<String> imageKeys;
-        private Boolean active;
+
         private Instant createdAt;
 
         public Builder id(String id) {
@@ -90,6 +115,11 @@ public record ProductCreatedEvent(
 
         public Builder imageKeys(List<String> imageKeys) {
             this.imageKeys = imageKeys;
+            return this;
+        }
+
+        public Builder address(AddressEvent address) {
+            this.address = address;
             return this;
         }
 

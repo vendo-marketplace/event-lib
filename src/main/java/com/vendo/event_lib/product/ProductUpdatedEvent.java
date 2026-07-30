@@ -1,5 +1,6 @@
 package com.vendo.event_lib.product;
 
+import com.vendo.event_lib.product.nested.AddressEvent;
 import com.vendo.event_lib.product.nested.AttributeEvent;
 
 import java.math.BigDecimal;
@@ -7,19 +8,34 @@ import java.util.List;
 
 public record ProductUpdatedEvent(
         String id,
+
         String title,
         String description,
         Integer quantity,
-        Boolean isNew,
         BigDecimal price,
         String categoryId,
         List<AttributeEvent> attributes,
         List<String> imageKeys,
+        AddressEvent address,
+
+        Boolean isNew,
         Boolean active
 ) {
 
     public ProductUpdatedEvent(ProductUpdatedEvent.Builder builder) {
-        this(builder.id, builder.title, builder.description, builder.quantity, builder.isNew, builder.price, builder.categoryId, builder.attributes, builder.imageKeys, builder.active);
+        this(
+                builder.id,
+                builder.title,
+                builder.description,
+                builder.quantity,
+                builder.price,
+                builder.categoryId,
+                builder.attributes,
+                builder.imageKeys,
+                builder.address,
+                builder.active,
+                builder.isNew
+        );
     }
 
     public ProductUpdatedEvent.Builder builder() {
@@ -28,14 +44,17 @@ public record ProductUpdatedEvent(
 
     public static class Builder {
         private String id;
+
         private String title;
         private String description;
         private Integer quantity;
-        private Boolean isNew;
         private BigDecimal price;
         private String categoryId;
         private List<AttributeEvent> attributes;
-        List<String> imageKeys;
+        private List<String> imageKeys;
+        private AddressEvent address;
+
+        private Boolean isNew;
         private Boolean active;
 
         public ProductUpdatedEvent.Builder id(String id) {
@@ -80,6 +99,11 @@ public record ProductUpdatedEvent(
 
         public ProductUpdatedEvent.Builder imageKeys(List<String> imageKeys) {
             this.imageKeys = imageKeys;
+            return this;
+        }
+
+        public ProductUpdatedEvent.Builder address(AddressEvent address) {
+            this.address = address;
             return this;
         }
 
