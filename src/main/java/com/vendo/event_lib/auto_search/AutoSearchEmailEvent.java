@@ -1,4 +1,17 @@
 package com.vendo.event_lib.auto_search;
 
-public record AutoSearchEmailEvent() {
+import java.math.BigDecimal;
+import java.util.List;
+
+public record AutoSearchEmailEvent(
+        String id,
+        List<ResultProduct> products
+) {
+    public record ResultProduct(
+            String id,
+            String title,
+            BigDecimal price
+    ) {
+    }
+
 }
