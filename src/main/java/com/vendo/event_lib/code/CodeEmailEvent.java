@@ -1,12 +1,12 @@
 package com.vendo.event_lib.code;
 
-public record EmailCodeEvent(
+public record CodeEmailEvent(
         String code,
         String email,
         CodeEventType type
 ) {
 
-    public EmailCodeEvent(String code, String email, CodeEventType type) {
+    public CodeEmailEvent(String code, String email, CodeEventType type) {
         this.code = code;
         this.email = email;
         this.type = type;
@@ -36,8 +36,8 @@ public record EmailCodeEvent(
             return this;
         }
 
-        public EmailCodeEvent build() {
-            return new EmailCodeEvent(code, email, type);
+        public CodeEmailEvent build() {
+            return new CodeEmailEvent(code, email, type);
         }
     }
 }
