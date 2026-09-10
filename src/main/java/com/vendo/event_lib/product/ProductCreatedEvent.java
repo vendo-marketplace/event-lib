@@ -2,7 +2,6 @@ package com.vendo.event_lib.product;
 
 import com.vendo.event_lib.product.nested.AddressEvent;
 import com.vendo.event_lib.product.nested.AttributeEvent;
-import com.vendo.event_lib.product.nested.Owner;
 import lombok.Builder;
 
 import java.math.BigDecimal;
@@ -24,7 +23,7 @@ public record ProductCreatedEvent(
         Boolean isNew,
         Boolean active,
 
-        Owner owner,
+        String ownerId,
         String categoryId,
 
         Instant createdAt
